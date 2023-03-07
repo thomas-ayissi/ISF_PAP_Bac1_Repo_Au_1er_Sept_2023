@@ -26,5 +26,5 @@ public class MyMath {
 		int n = console.nextInt();
 		System.out.println(n + " est pair :" + estPair(n));
 		console.close();
-	}
+			}
 }
