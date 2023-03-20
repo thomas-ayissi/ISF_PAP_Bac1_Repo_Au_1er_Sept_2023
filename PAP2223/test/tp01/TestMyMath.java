@@ -24,5 +24,11 @@ class TestMyMath {
 		assertEquals(8,MyMath.fibo(6));
 		assertThrows(AssertionError.class, () -> MyMath.fibo(-1));
 	}
+	@Test
+	void testnbBitsV1() {
+		assertEquals(0,MyMath.nbBitsV1Bis(0));
+		assertEquals(32,MyMath.nbBitsV1Bis(-1));
+		assertEquals(2,MyMath.nbBitsV1Bis(10));
+	}
 	
 }
