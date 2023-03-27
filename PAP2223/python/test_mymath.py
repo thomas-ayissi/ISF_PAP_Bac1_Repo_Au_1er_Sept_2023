@@ -17,6 +17,20 @@ class TestMyMath(unittest.TestCase):
         self.assertEqual(1,mymath.fibo(2))
         self.assertEqual(8,mymath.fibo(6))
         self.assertRaises(AssertionError,mymath.fibo,-1)
+    
+    def test_nbBitsV2Bis(self):
+        self.assertEqual(0,mymath.nbBitsV2Bis(0))
+        self.assertEqual(32,mymath.nbBitsV2Bis(-1))
+        self.assertEqual(2,mymath.nbBitsV2Bis(10))
+        self.assertEqual(1,mymath.nbBitsV2Bis(1))
+        
+    def test_nbBitsV1(self):
+        self.assertEqual(0,mymath.nbBitsV1(0))
+        self.assertEqual(2,mymath.nbBitsV1(-1))
+        self.assertEqual(2,mymath.nbBitsV1(10))
+        self.assertEqual(5,mymath.nbBitsV1(-41))
+        self.assertEqual(3,mymath.nbBitsV1(41))
+        
 
 if __name__ == "__main__":
     unittest.main()

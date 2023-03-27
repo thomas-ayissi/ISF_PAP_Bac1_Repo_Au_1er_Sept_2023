@@ -1,7 +1,5 @@
 package tp01;
 
-import java.util.Scanner;
-
 /**
  * 
  * @author Didier VO
@@ -74,6 +72,34 @@ public class MyMath {
 		return cpt;
 	}
 
+	/**
+	 * Calcule le nombre de bits à 1 dans n
+	 * 
+	 * @param n
+	 * @return nombre de bits à 1 dans n
+	 */
+	public static byte nbBitsV2Bis(int n) {
+		byte cpt = 0;
+		while (n != 0) {
+			cpt += n & 1;
+			n = n >>> 1;
+		}
+		return cpt;
+	}
+	
+	/**
+	 * Calcule la distance d'un projectile 
+	 * @param v m/s
+	 * @param a angle entre 1 et 89n degré
+	 * @return
+	 */
+	public static double calculDist(double v, double a) {
+		assert v>0 && a>=1 && a<=89 :"V doit être >0 et 1<= a <=89";
+		a= Math.toRadians(a);
+		return 2.0*v*v*Math.sin(a)*Math.cos(a)/9.8;
+	}
+
+	
 	public static void main(String[] args) {
 		DataPhi d = calculPhi(0.000001);
 		System.out.println(d.n() + " : " + d.phi());
