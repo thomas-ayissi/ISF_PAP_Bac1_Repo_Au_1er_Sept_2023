@@ -1,5 +1,48 @@
 import math
 
+class Parabole:
+    ''' Equation du 2ème degré '''
+    __eps = 0.000001
+     
+    def __init__(self,a,b,c):
+        ''' a doit être != 0 '''
+        assert a != 0 , " a doit être != 0"
+        self.__a = a
+        self.__b = b
+        self.__c = c
+        d = b * b - 4.0 * a * c
+        self.__delta = d if math.fabs(d)>= Parabole.__eps else 0.0
+        
+    def getNbRacines(self):
+        ''' Calcule le nombre de racines'''
+        if self.__delta==0: return 1
+        elif self.__delta>0: return 2
+        else : return 0
+    
+    def getRacine1(self):
+        '''Donne la première racine'''
+        assert self.__delta>=0 , " pas de solution, delta doit être >= 0"
+        return (-self.__b + math.sqrt(self.__delta))/(2.0 * self.__a)
+    
+    def getRacine2(self):
+        '''Donne la deuxième racine'''
+        assert self.__delta>=0 , " pas de solution, delta doit être >= 0"
+        return (-self.__b-math.sqrt(self.__delta))/(2.0 * self.__a)
+    
+    def f(self,x):
+        '''Calcule f(x)'''
+        return self.__a* x * x + self.__b * x + self.__c
+    
+    def getSommet(self):
+        '''Calcule le sommet de la parabole'''
+        x1 = - self.__b /( 2.0 * self.__a)
+        return x1 , self.f(x1)
+        
+    def getEps():
+        '''Donne la précision utilisée pour savoir si delta=0'''
+        return Parabole.__eps
+
+
 def estPair(n : int)-> bool:
     '''indique si un nombre est pair'''
     assert type(n) == int and n>=0, "Le nombre doit être un entier >=0"
