@@ -86,20 +86,29 @@ public class MyMath {
 		}
 		return cpt;
 	}
-	
+
 	/**
-	 * Calcule la distance d'un projectile 
+	 * Calcule la distance d'un projectile
+	 * 
 	 * @param v m/s
 	 * @param a angle entre 1 et 89n degré
 	 * @return
 	 */
 	public static double calculDist(double v, double a) {
-		assert v>0 && a>=1 && a<=89 :"V doit être >0 et 1<= a <=89";
-		a= Math.toRadians(a);
-		return 2.0*v*v*Math.sin(a)*Math.cos(a)/9.8;
+		assert v > 0 && a >= 1 && a <= 89 : "V doit être >0 et 1<= a <=89";
+		a = Math.toRadians(a);
+		return 2.0 * v * v * Math.sin(a) * Math.cos(a) / 9.8;
 	}
 
-	
+	public static byte getNbBytesUtf8(char c) {
+		short i = (short) c;
+		if ((i & 0xFF80) == 0)
+			return 1;
+		if ((i & 0xF800) == 0)
+			return 2;
+		return 3;
+	}
+
 	public static void main(String[] args) {
 		DataPhi d = calculPhi(0.000001);
 		System.out.println(d.n() + " : " + d.phi());

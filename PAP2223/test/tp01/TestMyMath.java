@@ -48,4 +48,11 @@ class TestMyMath {
 		assertThrows(AssertionError.class, () -> MyMath.calculDist(10.0, 0.0));
 	}
 	
+	@Test
+	void testUtf8() {
+		assertEquals(1, MyMath.getNbBytesUtf8('A'));
+		assertEquals(2, MyMath.getNbBytesUtf8('é'));
+		assertEquals(3, MyMath.getNbBytesUtf8('€'));
+	}
+	
 }
