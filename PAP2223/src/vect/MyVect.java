@@ -67,6 +67,15 @@ public class MyVect {
 		return true; // A changer
 	}
 
+	/**
+	 * Inverse le contenu d'un vecteur
+	 * 
+	 * @param v le vecteur qui sera modifié
+	 */
+	public static void inverseV(int[] v) {
+
+	}
+
 	public static void main(String[] args) {
 		int[] v1 = {};
 		int[] v2 = { 2, 8, 11, 67, 4 };
