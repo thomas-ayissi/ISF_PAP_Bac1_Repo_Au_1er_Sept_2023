@@ -62,7 +62,7 @@ public class MyVect {
 	 * @return
 	 */
 	public static boolean estTrieV1(int[] v) {
-		assert v.length>0:"Le vecteur ne peut pas être vide";
+		assert v.length > 0 : "Le vecteur ne peut pas être vide";
 		int i = 0;
 		int l = v.length - 1;
 		while (i < l && v[i] <= v[i + 1])
@@ -121,6 +121,18 @@ public class MyVect {
 			i++;
 			j--;
 		}
+	}
+
+	/**
+	 * Recherche binaire
+	 * 
+	 * @param v   vecteur trié (croissant)
+	 * @param val valeur recherchée
+	 * @return l'indice de l'élément ou -1
+	 */
+	public static int rechercheBin(int[] v, int val) {
+
+		return -1;
 	}
 
 	public static void main(String[] args) {

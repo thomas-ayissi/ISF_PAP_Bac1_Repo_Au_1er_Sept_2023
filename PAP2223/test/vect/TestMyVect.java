@@ -1,6 +1,7 @@
 package vect;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -92,5 +93,19 @@ class TestMyVect {
 		assertArrayEquals(vi2, v2);
 		MyVect.inverseV2(v3);
 		assertArrayEquals(vi3, v3);
+	}
+	
+	@Test
+	void testRechercheBin(){
+	 assertEquals(0,MyVect.rechercheBin(v1,5));
+	 assertEquals(-1,MyVect.rechercheBin(v1,10));
+	 assertEquals(0,MyVect.rechercheBin(v2,1));
+	 assertEquals(1,MyVect.rechercheBin(v2,2));
+	 assertEquals(2,MyVect.rechercheBin(v2,6));
+	 assertEquals(3,MyVect.rechercheBin(v2,9));
+	 assertEquals(-1,MyVect.rechercheBin(v2,10));
+	 assertEquals(-1,MyVect.rechercheBin(v2,-1));
+	 assertEquals(-1,MyVect.rechercheBin(v2,3));
+	 assertEquals(-1,MyVect.rechercheBin(v2,8));
 	}
 }
