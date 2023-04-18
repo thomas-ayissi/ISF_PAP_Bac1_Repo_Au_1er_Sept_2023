@@ -1,9 +1,9 @@
 package vect;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class TestMyVect {
@@ -95,23 +95,37 @@ class TestMyVect {
 		MyVect.inverseV2(v3);
 		assertArrayEquals(vi3, v3);
 	}
-	
+
 	@Test
-	void testRechercheBin(){
-	 assertEquals(0,MyVect.rechercheBin(v1,5));
-	 assertEquals(-1,MyVect.rechercheBin(v1,10));
-	 assertEquals(-1,MyVect.rechercheBin(v1,1));
-	 assertEquals(0,MyVect.rechercheBin(v2,1));
-	 assertEquals(1,MyVect.rechercheBin(v2,2));
-	 assertEquals(2,MyVect.rechercheBin(v2,6));
-	 assertEquals(3,MyVect.rechercheBin(v2,9));
-	 assertEquals(-1,MyVect.rechercheBin(v2,12));
-	 assertEquals(-1,MyVect.rechercheBin(v2,-1));
-	 assertEquals(-1,MyVect.rechercheBin(v2,3));
-	 assertEquals(-1,MyVect.rechercheBin(v2,8)); 
-	 
-	 assertEquals(2,MyVect.rechercheBin(v6,7));
-	 assertEquals(-1,MyVect.rechercheBin(v6,-2));	 
-	 assertEquals(-1,MyVect.rechercheBin(v6,10));
+	void testRechercheBin() {
+		assertEquals(0, MyVect.rechercheBin(v1, 5));
+		assertEquals(-1, MyVect.rechercheBin(v1, 10));
+		assertEquals(-1, MyVect.rechercheBin(v1, 1));
+		assertEquals(0, MyVect.rechercheBin(v2, 1));
+		assertEquals(1, MyVect.rechercheBin(v2, 2));
+		assertEquals(2, MyVect.rechercheBin(v2, 6));
+		assertEquals(3, MyVect.rechercheBin(v2, 9));
+		assertEquals(-1, MyVect.rechercheBin(v2, 12));
+		assertEquals(-1, MyVect.rechercheBin(v2, -1));
+		assertEquals(-1, MyVect.rechercheBin(v2, 3));
+		assertEquals(-1, MyVect.rechercheBin(v2, 8));
+
+		assertEquals(2, MyVect.rechercheBin(v6, 7));
+		assertEquals(-1, MyVect.rechercheBin(v6, -2));
+		assertEquals(-1, MyVect.rechercheBin(v6, 10));
+	}
+
+	@Test
+	void testEstPalindrome() {
+		char[] v1 = { 'A' };
+		char[] v2 = { 'A', 'A' };
+		char[] v3 = { 'R', 'A', 'D', 'A', 'R' };
+		char[] v4 = { 'A', 'B' };
+		char[] v5 = { 'A', 'X', 'Y', 'A' };
+		assertTrue(MyVect.estPalindrome(v1));
+		assertTrue(MyVect.estPalindrome(v2));
+		assertTrue(MyVect.estPalindrome(v3));
+		assertFalse(MyVect.estPalindrome(v4));
+		assertFalse(MyVect.estPalindrome(v5));
 	}
 }

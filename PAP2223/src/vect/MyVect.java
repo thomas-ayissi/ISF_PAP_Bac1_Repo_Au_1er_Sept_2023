@@ -163,16 +163,34 @@ public class MyVect {
 		}
 	}
 
+	/**
+	 * Vérifie si un texte est un palindrome
+	 * 
+	 * @param v
+	 * @return true si c'est un palindrome
+	 */
+	public static boolean estPalindrome(char[] v) {
+		int i = 0;
+		int j = v.length - 1;
+		while (i < j && v[i] == v[j]) {
+			i++;
+			j--;
+		}
+		return i >= j; // ou v[i]==v[j]
+	}
+
 	public static void main(String[] args) {
 		// int[] v1 = {};
-		int[] v2 = { 2, 12, 8, 11, 6, 1 };
+		//int[] v2 = { 2, 12, 8, 11, 6, 1 };
 		// afficheV(v1);
-		afficheV(v2);
-		System.out.println("Trié: " + estTrieV2(v2));
-		triInsertion(v2);
-		afficheV(v2);
-		System.out.println("Trié: " + estTrieV2(v2));
-
+//		afficheV(v2);
+//		System.out.println("Trié: " + estTrieV2(v2));
+//		triInsertion(v2);
+//		afficheV(v2);
+//		System.out.println("Trié: " + estTrieV2(v2));
+//		
+		char[] v={'A','A'};
+		System.out.println(estPalindrome(v));
 	}
 
 }
