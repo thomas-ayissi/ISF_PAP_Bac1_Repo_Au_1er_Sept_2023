@@ -131,17 +131,47 @@ public class MyVect {
 	 * @return l'indice de l'élément ou -1
 	 */
 	public static int rechercheBin(int[] v, int val) {
+		int a = 0;
+		int b = v.length - 1;
+		int m = b / 2;
+		while (a < b && v[m] != val) {
+			if (val < v[m])
+				b = m - 1;
+			else
+				a = m + 1;
+			m = (a + b) / 2;
+		}
+		return v[m] == val ? m : -1;
+	}
 
-		return -1;
+	/**
+	 * Trie le vecteur par insertion linéaire
+	 * 
+	 * @param v in/out vecteur à trier
+	 */
+	public static void triInsertion(int[] v) {
+		int val;
+		int i;
+		for (int j = 1; j < v.length; j++) {
+			val = v[j];
+			i = j - 1;
+			while (i >= 0 && v[i] > val) {
+				v[i + 1] = v[i];
+				i--;
+			}
+			v[i + 1] = val;
+		}
 	}
 
 	public static void main(String[] args) {
 		// int[] v1 = {};
-		int[] v2 = { 2, 8, 11, 67, 94 };
+		int[] v2 = { 2, 12, 8, 11, 6, 1 };
 		// afficheV(v1);
 		afficheV(v2);
 		System.out.println("Trié: " + estTrieV2(v2));
+		triInsertion(v2);
 		afficheV(v2);
+		System.out.println("Trié: " + estTrieV2(v2));
 
 	}
 

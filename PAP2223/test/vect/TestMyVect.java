@@ -13,6 +13,7 @@ class TestMyVect {
 	static int[] v3 = { 1, 2, 6, 4 };
 	static int[] v4 = { 1, 0, 6, 9 };
 	static int[] v5 = { 1, 1 };
+	static int[] v6 = { 1, 1, 7 };
 
 	@Test
 	void testSommeV() {
@@ -99,13 +100,18 @@ class TestMyVect {
 	void testRechercheBin(){
 	 assertEquals(0,MyVect.rechercheBin(v1,5));
 	 assertEquals(-1,MyVect.rechercheBin(v1,10));
+	 assertEquals(-1,MyVect.rechercheBin(v1,1));
 	 assertEquals(0,MyVect.rechercheBin(v2,1));
 	 assertEquals(1,MyVect.rechercheBin(v2,2));
 	 assertEquals(2,MyVect.rechercheBin(v2,6));
 	 assertEquals(3,MyVect.rechercheBin(v2,9));
-	 assertEquals(-1,MyVect.rechercheBin(v2,10));
+	 assertEquals(-1,MyVect.rechercheBin(v2,12));
 	 assertEquals(-1,MyVect.rechercheBin(v2,-1));
 	 assertEquals(-1,MyVect.rechercheBin(v2,3));
-	 assertEquals(-1,MyVect.rechercheBin(v2,8));
+	 assertEquals(-1,MyVect.rechercheBin(v2,8)); 
+	 
+	 assertEquals(2,MyVect.rechercheBin(v6,7));
+	 assertEquals(-1,MyVect.rechercheBin(v6,-2));	 
+	 assertEquals(-1,MyVect.rechercheBin(v6,10));
 	}
 }
