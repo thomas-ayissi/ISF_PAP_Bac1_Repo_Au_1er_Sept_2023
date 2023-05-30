@@ -2,8 +2,8 @@ package outils;
 
 /**
  * 
- * @author Didier Stack d'objet implémenté par un vecteur
- * @param <T> type des éléments
+ * @author Didier Stack d'objet implÃ©mentÃ© par un vecteur
+ * @param <T> type des Ã©lÃ©ments
  */
 public class Stack<T> {
 	private int sommet;
@@ -23,7 +23,7 @@ public class Stack<T> {
 	}
 
 	/**
-	 * Ajoute un élément au sommet du stack
+	 * Ajoute un Ã©lÃ©ment au sommet du stack
 	 * 
 	 * @param elem
 	 */
@@ -36,9 +36,9 @@ public class Stack<T> {
 	}
 
 	/**
-	 * retire un élément du stack
+	 * retire un Ã©lÃ©ment du stack
 	 * 
-	 * @return élément
+	 * @return Ã©lÃ©ment
 	 */
 	public T pop() {
 		if (sommet > 0) {
@@ -51,7 +51,7 @@ public class Stack<T> {
 	}
 
 	/**
-	 * Retourne l'élément au sommet
+	 * Retourne l'Ã©lÃ©ment au sommet
 	 * 
 	 * @return
 	 */
@@ -77,6 +77,7 @@ public class Stack<T> {
 		s1.push(2);
 		System.out.println(s1.pop());
 		System.out.println(s1.pop());
+		s1=null;
 	}
 
 }
