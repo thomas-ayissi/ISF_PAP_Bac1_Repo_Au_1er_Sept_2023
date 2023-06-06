@@ -37,9 +37,27 @@ public class CorrectionTP1 {
 		return trouve;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 
+	public static void main(String[] args) {
+		boolean[][] trans = { { true, false, true, true, false, false, true, false, true, true },
+				{ false, true, false, true, true, false, true, false, true, true },
+				{ true, false, true, false, true, false, true, false, true, true },
+				{ true, true, false, false, false, false, true, false, true, true },
+				{ true, false, true, true, false, false, true, false, true, true },
+				{ true, false, true, true, false, false, true, false, true, true },
+				{ true, false, true, true, false, false, true, false, true, true },
+				{ true, false, true, true, false, false, true, false, true, true },
+				{ true, false, true, true, false, false, true, false, true, true },
+				{ true, false, true, true, false, false, true, false, true, true } };
+		int[] seq1 = { 0, 0, 2, 2, 0, 1 };// false
+		int[] seq2 = { 0, 2, 1, 1, 3 };// false
+		int[] seq3 = { 0, 0, 2, 2, 0, 3 };// true
+		int[] seq4 = { 0 };// true
+//		System.out.println("Seq valide: " + validerSeq(seq1, trans));
+//		System.out.println("Seq valide: " + validerSeq(seq2, trans));
+//		System.out.println("Seq valide: " + validerSeq(seq3, trans));
+//		System.out.println("Seq valide: " + validerSeq(seq4, trans));
 	}
 
 }
