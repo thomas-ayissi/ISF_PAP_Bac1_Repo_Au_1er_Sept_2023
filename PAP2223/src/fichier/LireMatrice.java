@@ -1,8 +1,5 @@
 package fichier;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.URL;
 import java.util.Scanner;
 
 import vect.MyMat;
@@ -11,12 +8,8 @@ public class LireMatrice {
 	public static void main(String[] args) {
 		// Permet d'obtenir l'URL d'un fichier qui se trouve dans un package de
 		// l'application (chemin absolu)
-		URL url = LireMatrice.class.getResource("mat1.txt");
-		if (url == null)
-			System.err.println("Le fichier n'existe pas");
-		else {//Crée un fichier à partir du chemin contenu dans l'URL
-			File fichier = new File(url.getFile());
-			try (Scanner scan = new Scanner(fichier)) {
+		
+			try (Scanner scan = new Scanner(LireMatrice.class.getResourceAsStream("mat11.txt"))) {
 				int nbLignes = scan.nextInt();
 				int nbColonnes = scan.nextInt();
 				System.out.println("NbLignes: " + nbLignes + " NbColonnes: " + nbColonnes);
@@ -29,10 +22,10 @@ public class LireMatrice {
 
 				MyMat.afficheM1(mat);
 
-			} catch (FileNotFoundException e) {
+			} catch (Exception e) {
 				System.err.println("Erreur " + e.getMessage());
 			}
 		}
 
-	}
+	
 }
