@@ -63,15 +63,16 @@ public class Othello {
 	/**
 	 * Rajoute des -2 autour de la matrice
 	 * 
-	 * @param jeu2
+	 * @param jeu
 	 */
-	private void ajouteBordure(int[][] jeu2) {
-		// TODO
-
+	private void ajouteBordure(int[][] jeu) {
+		jeu[0][0] = jeu[9][9] = jeu[0][9] = jeu[9][0] = -2;
+		for (int i = 1; i < 9; i++)
+			jeu[0][i] = jeu[i][0] = jeu[9][i] = jeu[i][9] = -2;
 	}
 
 	/**
-	 * Lance la partie initialis�e
+	 * Lance la partie initialisée
 	 */
 	public void start() {
 		boolean abandon = false;
@@ -188,12 +189,23 @@ public class Othello {
 	 * @param y position valide
 	 */
 	private void retournePions(Position choixJ) {
-		// TODO
+		jeu[choixJ.x][choixJ.y] = this.tourDesBlancs ? BLANC : NOIR;
+		int cpt = 0;
+		for (Position d : directions) {
+			cpt += retournePions(choixJ.x, choixJ.y, d);
+		}
+		if (tourDesBlancs) {
+			this.nbBlancs += 1 + cpt;
+			this.nbNoirs -= cpt;
+		} else {
+			this.nbNoirs += 1 + cpt;
+			this.nbBlancs -= cpt;
+		}
 	}
 
 	/**
-	 * Retourne les pions dans une direction donnée s'il existe une fourchette.
-	 * Le pion de joueur est déjà mis
+	 * Retourne les pions dans une direction donnée s'il existe une fourchette. Le
+	 * pion de joueur est déjà mis
 	 * 
 	 * @param x   position ligne du pion joué
 	 * @param y   position colonne du pion joué
@@ -223,12 +235,14 @@ public class Othello {
 	 * 
 	 */
 	private void afficheJeu() {
-		// TODO
+		System.out.println("==============================");
+		
+		System.out.println("==============================");
 	}
 
 	/**
 	 * Lit une position x et y sur la console x et y doit être entre 1 et 8 pour une
-	 * position -1  signifie un abandon
+	 * position -1 signifie un abandon
 	 * 
 	 * @return Position valable
 	 */
