@@ -179,9 +179,65 @@ public class MyVect {
 		return i >= j; // ou v[i]==v[j]
 	}
 
+	/**
+	 * Fusion de 2 listes triées
+	 * 
+	 * @param l1
+	 * @param l2
+	 * @return nouvelle liste
+	 */
+	public static int[] fusionVO(int[] l1, int[] l2) {
+		int n1 = l1.length;
+		int n2 = l2.length;
+		int[] l3 = new int[n1 + n2];
+		int i = 0, j = 0, k = 0;
+		// Tq que les 2 listes ne sont au bout
+		while (i < n1 && j < n2) {
+			while (i < n1 && l1[i] <= l2[j])
+				l3[k++] = l1[i++];
+			if (i < n1)
+				while (j < n2 && l1[i] >= l2[j])
+					l3[k++] = l2[j++];
+		}
+		// Vide la liste restante
+		for (; i < n1; i++) // L1
+			l3[k++] = l1[i];
+		for (; j < n2; j++) // L2
+			l3[k++] = l2[j];
+		return l3;
+	}
+
+	/**
+	 * Fusion
+	 * Version 2 avec un if dans la boucle
+	 * 
+	 * @param l1
+	 * @param l2
+	 * @return
+	 */
+	public static int[] fusion(int[] l1, int[] l2) {
+		int n1 = l1.length;
+		int n2 = l2.length;
+		int[] l3 = new int[n1 + n2];
+		int i = 0, j = 0, k = 0;
+		while (i < n1 && j < n2)
+			if (l1[i] <= l2[j])
+				l3[k++] = l1[i++];
+			else
+				l3[k++] = l2[j++];
+
+		while (i < n1)
+			l3[k++] = l1[i++];
+
+		while (j < n2)
+			l3[k++] = l2[j++];
+
+		return l3;
+	}
+
 	public static void main(String[] args) {
 		// int[] v1 = {};
-		//int[] v2 = { 2, 12, 8, 11, 6, 1 };
+		// int[] v2 = { 2, 12, 8, 11, 6, 1 };
 		// afficheV(v1);
 //		afficheV(v2);
 //		System.out.println("Trié: " + estTrieV2(v2));
@@ -189,7 +245,7 @@ public class MyVect {
 //		afficheV(v2);
 //		System.out.println("Trié: " + estTrieV2(v2));
 //		
-		char[] v={'A','A'};
+		char[] v = { 'A', 'A' };
 		System.out.println(estPalindrome(v));
 	}
 

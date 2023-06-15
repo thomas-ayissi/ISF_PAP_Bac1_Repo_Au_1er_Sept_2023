@@ -128,4 +128,22 @@ class TestMyVect {
 		assertFalse(MyVect.estPalindrome(v4));
 		assertFalse(MyVect.estPalindrome(v5));
 	}
+	
+	@Test
+	void testFusion() {
+		int[] v0 = {};
+		int[] v1 = { 1, 2, 3 };
+		int[] v2 = { 4, 8, 9, 9 };
+		int[] v3 = { 1,2,3,4,8,9,9};
+		assertArrayEquals(v3, MyVect.fusionVO(v1, v2));
+		assertArrayEquals(v3, MyVect.fusionVO(v2, v1));
+		assertArrayEquals(v1, MyVect.fusionVO(v1, v0));
+		assertArrayEquals(v1, MyVect.fusionVO(v0, v1));
+		assertArrayEquals(v3, MyVect.fusion(v1, v2));
+		assertArrayEquals(v3, MyVect.fusion(v2, v1));
+		assertArrayEquals(v1, MyVect.fusion(v1, v0));
+		assertArrayEquals(v1, MyVect.fusion(v0, v1));
+	}
+	
+	
 }
